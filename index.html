@@ -19,8 +19,10 @@
       "esri/views/MapView",
       "esri/widgets/BasemapGallery",
       "esri/widgets/Locate",
-      "esri/widgets/Search"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search) {   
+      "esri/widgets/Search",
+      "esri/Graphic",  
+      "esri/layers/GraphicsLayer" 
+    ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, BasemapGallery, Locate, Search) {   
     
       esriConfig.apiKey = "AAPK1074e52bbd8d4a7f8aac8850a186c22bxMaJNAQ4TRN94kULcaymkyRF64zjDWC-w4jRlYFPAg6toeCDU-pTio78mm89UU4z";
       const map = new Map({ 
@@ -34,6 +36,33 @@
       container: "viewDiv" // Div element
       });
 
+      // Lab 2 
+      const graphicsLayer = new GraphicsLayer();  
+      map.add(graphicsLayer);
+
+      const point = { //Create a point  
+        type: "point",  
+        longitude: -97.750689,    //long lat of Stevie Ray Vaughan Statue
+        latitude: 30.263098
+      };
+
+      const simpleMarkerSymbol = {  
+        type: "simple-marker",  
+        color: [0, 0, 139],  // Color of blues rock
+        outline: {  
+          color: [255, 255, 255], // White  
+          width: 1
+        }  
+      };
+
+      const pointGraphic = new Graphic({  
+        geometry: point,  
+        symbol: simpleMarkerSymbol  
+      });
+
+      graphicsLayer.add(pointGraphic);
+
+      // Lab 1 challenges
       let basemapGallery = new BasemapGallery({
         view: view
       });
