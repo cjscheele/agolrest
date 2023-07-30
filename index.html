@@ -17,12 +17,9 @@
       "esri/config",
       "esri/Map",
       "esri/views/MapView",
-      "esri/widgets/BasemapGallery",
-      "esri/widgets/Locate",
-      "esri/widgets/Search",
       "esri/Graphic",  
       "esri/layers/GraphicsLayer" 
-    ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, BasemapGallery, Locate, Search) {   
+    ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer) {   
     
       esriConfig.apiKey = "AAPK1074e52bbd8d4a7f8aac8850a186c22bxMaJNAQ4TRN94kULcaymkyRF64zjDWC-w4jRlYFPAg6toeCDU-pTio78mm89UU4z";
       const map = new Map({ 
@@ -40,12 +37,14 @@
       const graphicsLayer = new GraphicsLayer();  
       map.add(graphicsLayer);
 
+      
       const point = { //Create a point  
         type: "point",  
         longitude: -97.750689,    //long lat of Stevie Ray Vaughan Statue
         latitude: 30.263098
       };
 
+      
       const simpleMarkerSymbol = {  
         type: "simple-marker",  
         color: [0, 0, 139],  // Color of blues rock
@@ -55,40 +54,13 @@
         }  
       };
 
+      
       const pointGraphic = new Graphic({  
         geometry: point,  
         symbol: simpleMarkerSymbol  
       });
 
       graphicsLayer.add(pointGraphic);
-
-      // Lab 1 challenges
-      // let basemapGallery = new BasemapGallery({
-      //   view: view
-      // });
-      // // Add widget to the top right corner of the view
-      // view.ui.add(basemapGallery, {
-      //   position: "top-right"
-      // });
-
-      // const locateBtn = new Locate({
-      //   view: view
-      // });
-
-      // // Add the locate widget to the top left corner of the view
-      // view.ui.add(locateBtn, {
-      //   position: "top-left"
-      // });
-
-      // const searchWidget = new Search({
-      //   view: view
-      // });
-      // // Adds the search widget below other elements in
-      // // the top left corner of the view
-      // view.ui.add(searchWidget, {
-      //   position: "top-left",
-      //   index: 2
-      // });
     });  
    </script>
 
