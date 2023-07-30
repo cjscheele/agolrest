@@ -18,8 +18,9 @@
       "esri/Map",
       "esri/views/MapView",
       "esri/Graphic",  
-      "esri/layers/GraphicsLayer" 
-    ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer) {   
+      "esri/layers/GraphicsLayer" ,
+      "esri/layers/FeatureLayer"
+    ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, FeatureLayer) {   
     
       esriConfig.apiKey = "AAPK1074e52bbd8d4a7f8aac8850a186c22bxMaJNAQ4TRN94kULcaymkyRF64zjDWC-w4jRlYFPAg6toeCDU-pTio78mm89UU4z";
       const map = new Map({ 
@@ -72,6 +73,11 @@
       });
 
       graphicsLayer.add(pointGraphic);
+
+      const usaeduLayer = new FeatureLayer({
+        url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer"
+      });
+      map.add(usaeduLayer);
     });  
    </script>
 
