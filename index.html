@@ -90,6 +90,21 @@
 
       //adding the feature layer to the map
       map.add(usaeduLayer);
+
+      const popupAirports = {
+        "title": "Airports",
+        "content": "<b>Name:</b> {Fac_Name}<br><b>Code:</b> {Icao_Ident}<br>"
+      }
+      
+      const airportsLayer = new FeatureLayer({
+      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports_cjscheele/FeatureServer",
+
+      outFields: ["Fac_Name","Icao_Ident"],
+      popupTemplate: popupAirports
+      });
+
+      map.add(airportsLayer);
+      
     });  
    </script>
 
