@@ -107,7 +107,7 @@
 
       const airportsLayer = new FeatureLayer({
       url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports_cjscheele/FeatureServer",
-      renderer: airportRenderer
+      renderer: airportRenderer,
       outFields: ["Fac_Name","Icao_Ident"],
       popupTemplate: popupAirports
       });
